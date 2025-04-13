@@ -9,9 +9,11 @@ import DashboardPage from "./pages/DashboardPage";
 import SessionsTabs from "./components/sessions/tabs/SessionTabs";
 import ThemeSwitcher from "./components/ThemeSwitcher";
 
+const basename = import.meta.env.PROD ? "/sessions-app" : "/";
+
 export default function App() {
   return (
-    <Router>
+    <Router basename={basename}>
       <SessionsTabs />
       <ThemeSwitcher />
       <Routes>
