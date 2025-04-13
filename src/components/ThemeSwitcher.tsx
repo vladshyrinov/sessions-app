@@ -2,7 +2,8 @@ import { useEffect } from "react";
 import { useThemeStore } from "../store/themeStore";
 
 export default function ThemeSwitcher() {
-  const { isDarkMode, toggleTheme } = useThemeStore();
+  const isDarkMode = useThemeStore((state) => state.isDarkMode);
+  const toggleTheme = useThemeStore((state) => state.toggleTheme);
 
   useEffect(() => {
     if (isDarkMode) {

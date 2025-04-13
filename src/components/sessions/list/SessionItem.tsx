@@ -6,7 +6,8 @@ interface SessionItemProps {
 }
 
 export default function SessionItem({ session }: SessionItemProps) {
-  const { openSession, removeSession } = useSessionStore();
+  const openSession = useSessionStore((state) => state.openSession);
+  const removeSession = useSessionStore((state) => state.removeSession);
   const navigate = useNavigate();
 
   const handleOpen = (id: string) => {

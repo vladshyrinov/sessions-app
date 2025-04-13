@@ -3,7 +3,7 @@ import { Session, useSessionStore } from "../../../store/sessionStore";
 import SessionTab from "./SessionTab";
 
 export default function SessionsTabs() {
-  const { sessions } = useSessionStore();
+  const sessions = useSessionStore((state) => state.sessions);
 
   const tabs: Session[] = useMemo(
     () => [
@@ -23,7 +23,7 @@ export default function SessionsTabs() {
     <nav
       role="tablist"
       aria-label="Session tabs"
-      className="flex border-b border-gray-300"
+      className="sticky top-0 z-10 flex border-b border-gray-300"
     >
       {openSessions.map((session) => (
         <SessionTab key={session.id} sessionTab={session} />

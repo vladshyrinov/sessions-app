@@ -1,4 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom";
+import clsx from "clsx";
 import { Session, useSessionStore } from "../../../store/sessionStore";
 import CloseTabButton from "./CloseTabButton";
 
@@ -7,7 +8,7 @@ interface SessionTabProps {
 }
 
 export default function SessionTab({ sessionTab }: SessionTabProps) {
-  const { closeSession } = useSessionStore();
+  const closeSession = useSessionStore((state) => state.closeSession);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -37,14 +38,18 @@ export default function SessionTab({ sessionTab }: SessionTabProps) {
       aria-selected={isActive ? "true" : "false"}
       aria-controls={`panel-${id}`}
       tabIndex={isActive ? 0 : -1}
-      className={`${
-        isActive
-          ? "bg-blue-500 text-white dark:bg-blue-700 dark:text-white"
-          : "bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300 hover:bg-blue-200 dark:hover:bg-blue-800"
-      } px-4 py-1 rounded-t-md cursor-pointer flex justify-between items-center transition-colors overflow-hidden whitespace-nowrap`}
+      className={clsx(
+        "flex items-center px-4 py-1 text-sm border-b-2 border-transparent hover:border-blue-500 focus:outline-none cursor-pointer",
+        {
+          "bg-blue-500 text-white dark:bg-blue-700 dark:text-white": isActive,
+          "bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300":
+            !isActive,
+          "truncate max-w-[150px]": id !== "dashboard",
+        }
+      )}
       onClick={() => handleTabClick(id)}
     >
-      <span className="text-sm font-medium">{name}</span>
+      <span className="truncate">{name}</span>
       {id !== "dashboard" && (
         <CloseTabButton id={id} name={name} onClose={handleClose} />
       )}

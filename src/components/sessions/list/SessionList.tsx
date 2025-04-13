@@ -2,7 +2,7 @@ import { useSessionStore } from "../../../store/sessionStore";
 import SessionItem from "./SessionItem";
 
 export default function SessionList() {
-  const { sessions } = useSessionStore();
+  const sessions = useSessionStore((state) => state.sessions);
 
   return (
     <div className="mt-6">

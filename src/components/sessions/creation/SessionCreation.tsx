@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useSessionStore } from "../../../store/sessionStore";
 
 export default function SessionCreation() {
-  const { addSession } = useSessionStore();
+  const addSession = useSessionStore((state) => state.addSession);
   const navigate = useNavigate();
   const [newSessionName, setNewSessionName] = useState("");
   const [errorMessage, setErrorMessage] = useState("");

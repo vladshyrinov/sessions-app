@@ -7,7 +7,7 @@ export default function SessionPage() {
   const { id } = useParams<{
     id: string;
   }>();
-  const { sessions } = useSessionStore();
+  const sessions = useSessionStore((state) => state.sessions);
 
   const session = sessions.find((session) => session.id === id);
 
