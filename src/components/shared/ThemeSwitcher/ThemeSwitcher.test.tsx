@@ -1,7 +1,13 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import ThemeSwitcher from "./ThemeSwitcher";
-import { useThemeStore } from "../store/themeStore";
+import { useThemeStore } from "../../../store/themeStore";
+
+vi.mock("./ThemeSwitcher.module.css", () => {
+  return {
+    default: {},
+  };
+});
 
 describe("<ThemeSwitcher />", () => {
   beforeEach(() => {

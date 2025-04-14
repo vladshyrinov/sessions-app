@@ -1,0 +1,21 @@
+@reference "tailwindcss";
+
+.page-container {
+  @apply bg-gray-50 text-gray-900;
+}
+
+:global(.dark) .page-container {
+  @apply bg-gray-900 text-gray-300;
+}
+
+.page-content {
+  @apply container mx-auto p-6;
+}
+
+.page-title {
+  @apply text-3xl font-bold text-center text-gray-900 mb-6;
+}
+
+:global(.dark) .page-title {
+  @apply text-white;
+}

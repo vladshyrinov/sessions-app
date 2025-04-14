@@ -4,6 +4,12 @@ import { MemoryRouter, Route, Routes } from "react-router-dom";
 import SessionCreation from "./SessionCreation";
 import { useSessionStore } from "../../../store/sessionStore";
 
+vi.mock("./SessionCreation.module.css", () => {
+  return {
+    default: {},
+  };
+});
+
 describe("<SessionCreation />", () => {
   it("renders input and disabled button initially", () => {
     render(

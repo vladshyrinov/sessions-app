@@ -5,9 +5,9 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import SessionsTabs from "./components/sessions/tabs/SessionTabs";
-import ThemeSwitcher from "./components/ThemeSwitcher";
-import Spinner from "./components/Spinner";
+import SessionTabs from "./components/sessions/tabs/SessionTabs";
+import ThemeSwitcher from "./components/shared/ThemeSwitcher/ThemeSwitcher";
+import Spinner from "./components/shared/Spinner/Spinner";
 
 const SessionPage = React.lazy(() => import("./pages/SessionPage"));
 const DashboardPage = React.lazy(() => import("./pages/DashboardPage"));
@@ -17,7 +17,7 @@ const basename = import.meta.env.PROD ? "/sessions-app" : "/";
 export default function App() {
   return (
     <Router basename={basename}>
-      <SessionsTabs />
+      <SessionTabs />
       <ThemeSwitcher />
       <Suspense fallback={<Spinner aria-label="Loading content..." />}>
         <Routes>

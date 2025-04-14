@@ -1,0 +1,25 @@
+@reference "tailwindcss";
+
+.session-tab {
+  @apply flex items-center px-4 py-1 text-sm border-b-2 border-transparent hover:border-blue-500 focus:outline-none cursor-pointer;
+}
+
+.session-tab-active {
+  @apply bg-blue-500 text-white;
+}
+
+:global(.dark) .session-tab-active {
+  @apply bg-blue-700 text-white;
+}
+
+.session-tab-inactive {
+  @apply bg-gray-200 text-gray-700;
+}
+
+:global(.dark) .session-tab-inactive {
+  @apply bg-gray-700 text-gray-300;
+}
+
+.session-tab-truncate {
+  @apply truncate max-w-[150px];
+}

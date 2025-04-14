@@ -1,5 +1,6 @@
 import { useEffect } from "react";
-import { useThemeStore } from "../store/themeStore";
+import { useThemeStore } from "../../../store/themeStore";
+import styles from "./ThemeSwitcher.module.css";
 
 export default function ThemeSwitcher() {
   const isDarkMode = useThemeStore((state) => state.isDarkMode);
@@ -16,7 +17,7 @@ export default function ThemeSwitcher() {
   return (
     <button
       onClick={toggleTheme}
-      className="fixed top-10 right-4 z-50 p-2 rounded bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 transition"
+      className={styles["toggle-theme-button"]}
       aria-label="Toggle Theme"
     >
       {isDarkMode ? "☀️ Light" : "🌙 Dark"}

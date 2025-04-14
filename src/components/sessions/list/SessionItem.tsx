@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Session, useSessionStore } from "../../../store/sessionStore";
+import styles from "./SessionItem.module.css";
 
 interface SessionItemProps {
   session: Session;
@@ -20,22 +21,20 @@ export default function SessionItem({ session }: SessionItemProps) {
   };
 
   return (
-    <li className="flex justify-between items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
-      <span className="text-sm font-medium text-gray-900 dark:text-gray-300">
-        {session.name}
-      </span>
-      <div className="flex space-x-3">
+    <li className={styles["session-item"]}>
+      <span className={styles["session-name"]}>{session.name}</span>
+      <div className={styles["session-actions"]}>
         <button
           onClick={() => handleOpen(session.id)}
           aria-label={`Open session ${session.name}`}
-          className="text-blue-500 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 py-1 px-3 rounded-md cursor-pointer transition duration-200 ease-in-out"
+          className={styles["open-button"]}
         >
           Open
         </button>
         <button
           onClick={() => handleRemove(session.id)}
           aria-label={`Remove session ${session.name}`}
-          className="text-red-500 hover:text-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 py-1 px-3 rounded-md cursor-pointer transition duration-200 ease-in-out"
+          className={styles["remove-button"]}
         >
           Remove
         </button>

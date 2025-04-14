@@ -1,0 +1,32 @@
+@reference "tailwindcss";
+
+.session-item {
+  @apply flex justify-between items-center p-4 bg-white rounded-lg shadow-md transition-colors;
+  @apply hover:bg-gray-50;
+}
+
+:global(.dark) .session-item {
+  @apply bg-gray-800 hover:bg-gray-700;
+}
+
+.session-name {
+  @apply text-sm font-medium text-gray-900;
+}
+
+:global(.dark) .session-name {
+  @apply text-gray-300;
+}
+
+.session-actions {
+  @apply flex space-x-3;
+}
+
+.open-button {
+  @apply text-blue-500 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500;
+  @apply py-1 px-3 rounded-md cursor-pointer transition duration-200 ease-in-out;
+}
+
+.remove-button {
+  @apply text-red-500 hover:text-red-700 focus:outline-none focus:ring-2 focus:ring-red-500;
+  @apply py-1 px-3 rounded-md cursor-pointer transition duration-200 ease-in-out;
+}

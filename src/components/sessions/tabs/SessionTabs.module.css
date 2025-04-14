@@ -1,0 +1,9 @@
+@reference "tailwindcss";
+
+.session-tabs {
+  @apply sticky top-0 z-10 flex border-b border-gray-300 bg-white;
+}
+
+:global(.dark) .session-tabs {
+  @apply border-gray-700 bg-gray-800;
+}

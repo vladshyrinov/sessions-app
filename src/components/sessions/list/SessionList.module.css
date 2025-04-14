@@ -1,0 +1,21 @@
+@reference "tailwindcss";
+
+.session-list-container {
+  @apply mt-6;
+}
+
+.session-list-title {
+  @apply text-2xl font-semibold text-gray-900 mb-4;
+}
+
+:global(.dark) .session-list-title {
+  @apply text-white;
+}
+
+.session-list-empty {
+  @apply text-gray-500 text-center;
+}
+
+.session-list {
+  @apply space-y-4;
+}

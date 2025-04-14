@@ -1,7 +1,8 @@
 import { useParams } from "react-router-dom";
 import { useSessionStore } from "../..../../store/sessionStore";
-import SessionNotFound from "../components/sessions/notFound/SessionNotFound";
 import SessionDetails from "../components/sessions/details/SessionDetails";
+import PageContainer from "../components/shared/PageContainer/PageContainer";
+import styles from "./SessionPage.module.css";
 
 export default function SessionPage() {
   const { id } = useParams<{
@@ -11,19 +12,15 @@ export default function SessionPage() {
 
   const session = sessions.find((session) => session.id === id);
 
-  if (!session) {
-    return <SessionNotFound />;
-  }
-
   return (
-    <main className="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-300">
-      <div className="container mx-auto p-6">
-        <h1 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-6">
-          Session Details
-        </h1>
-
+    <PageContainer title="Session Details">
+      {session ? (
         <SessionDetails session={session} />
-      </div>
-    </main>
+      ) : (
+        <p className={styles["error-message"]}>
+          The session you are looking for could not be found.
+        </p>
+      )}
+    </PageContainer>
   );
 }

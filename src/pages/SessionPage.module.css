@@ -1,0 +1,9 @@
+@reference "tailwindcss";
+
+.error-message {
+  @apply text-gray-700 text-center mt-6;
+}
+
+:global(.dark) .error-message {
+  @apply text-gray-300;
+}

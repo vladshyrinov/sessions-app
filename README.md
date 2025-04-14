@@ -147,3 +147,12 @@ GitHub Actions automates the CI/CD pipeline, making it easier to build, test, an
 The GitHub Actions configuration ensures that each push to the main branch triggers a build and deployment process to GitHub Pages.
 
 This automation reduces the risk of human error and ensures that deployments are consistent and repeatable.
+
+### Summary
+
+This architecture and choice of libraries were selected to ensure:
+
+- Scalability: The modular structure and reusable components make it easy to add new features and pages.
+- Performance: Tools like Vite, Zustand, and Tailwind CSS ensure fast development and optimized production builds.
+- Maintainability: The use of ESLint, Prettier, and Husky enforces code quality and consistency across the project.
+- User Experience: Features like dark mode, responsive design, and seamless navigation enhance the overall user experience.

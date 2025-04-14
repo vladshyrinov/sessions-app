@@ -1,0 +1,16 @@
+@reference "tailwindcss";
+
+.close-tab-button {
+  @apply w-5 h-5 text-gray-800 hover:text-gray-900;
+  @apply rounded-full flex items-center justify-center text-xs ml-1 cursor-pointer;
+  @apply hover:bg-gray-100 transition;
+}
+
+:global(.dark) .close-tab-button {
+  @apply text-gray-300 hover:text-white;
+  @apply hover:bg-gray-900;
+}
+
+.close-tab-icon {
+  @apply w-3 h-3;
+}

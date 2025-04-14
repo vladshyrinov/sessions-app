@@ -1,20 +1,19 @@
 import { useSessionStore } from "../../../store/sessionStore";
 import SessionItem from "./SessionItem";
+import styles from "./SessionList.module.css";
 
 export default function SessionList() {
   const sessions = useSessionStore((state) => state.sessions);
 
   return (
-    <div className="mt-6">
-      <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-        List of Sessions
-      </h2>
+    <div className={styles["session-list-container"]}>
+      <h2 className={styles["session-list-title"]}>List of Sessions</h2>
       {sessions.length === 0 ? (
-        <p className="text-gray-500 text-center">
+        <p className={styles["session-list-empty"]}>
           No sessions yet. Create one to get started.
         </p>
       ) : (
-        <ul className="space-y-4">
+        <ul className={styles["session-list"]}>
           {sessions.map((session) => (
             <SessionItem key={session.id} session={session} />
           ))}

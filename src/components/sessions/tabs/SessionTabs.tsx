@@ -1,8 +1,9 @@
 import { useMemo } from "react";
 import { Session, useSessionStore } from "../../../store/sessionStore";
 import SessionTab from "./SessionTab";
+import styles from "./SessionTabs.module.css";
 
-export default function SessionsTabs() {
+export default function SessionTabs() {
   const sessions = useSessionStore((state) => state.sessions);
 
   const tabs: Session[] = useMemo(
@@ -23,7 +24,7 @@ export default function SessionsTabs() {
     <nav
       role="tablist"
       aria-label="Session tabs"
-      className="sticky top-0 z-10 flex border-b border-gray-300"
+      className={styles["session-tabs"]}
     >
       {openSessions.map((session) => (
         <SessionTab key={session.id} sessionTab={session} />

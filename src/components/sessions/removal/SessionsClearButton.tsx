@@ -1,4 +1,5 @@
 import { useSessionStore } from "../../../store/sessionStore";
+import styles from "./SessionsClearButton.module.css";
 
 export default function SessionsClearButton() {
   const sessions = useSessionStore((state) => state.sessions);
@@ -8,7 +9,7 @@ export default function SessionsClearButton() {
     <button
       aria-label="Clear all sessions"
       onClick={clearSessions}
-      className="w-full py-2 mt-6 text-white bg-red-500 hover:bg-red-600 rounded-md cursor-pointer"
+      className={styles["clear-button"]}
     >
       Clear All Sessions
     </button>

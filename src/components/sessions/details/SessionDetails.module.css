@@ -1,0 +1,33 @@
+@reference "tailwindcss";
+
+.session-details {
+  @apply bg-white p-6 rounded-lg shadow-md;
+}
+
+:global(.dark) .session-details {
+  @apply bg-gray-800;
+}
+
+.session-title {
+  @apply text-xl font-semibold text-gray-900 mb-2;
+}
+
+:global(.dark) .session-title {
+  @apply text-white;
+}
+
+.session-name {
+  @apply text-blue-600;
+}
+
+:global(.dark) .session-name {
+  @apply text-blue-400;
+}
+
+.session-id {
+  @apply text-gray-700;
+}
+
+:global(.dark) .session-id {
+  @apply text-gray-300;
+}

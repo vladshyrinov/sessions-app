@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSessionStore } from "../../../store/sessionStore";
+import styles from "./SessionCreation.module.css";
 
 export default function SessionCreation() {
   const addSession = useSessionStore((state) => state.addSession);
@@ -26,7 +27,7 @@ export default function SessionCreation() {
   };
 
   return (
-    <div className="max-w-lg mx-auto p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+    <div className={styles["session-creation-container"]}>
       <label htmlFor="session-name-input" className="sr-only">
         New session name
       </label>
@@ -38,19 +39,19 @@ export default function SessionCreation() {
         onChange={(e) => setNewSessionName(e.target.value)}
         onKeyDown={handleKeyDown}
         aria-label="New session name"
-        className="w-full p-3 text-gray-900 dark:text-gray-300 bg-gray-100 dark:bg-gray-700 rounded-md border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-gray-500 dark:placeholder-gray-400"
+        className={styles["session-input"]}
       />
       {errorMessage && (
-        <p className="mt-2 text-sm text-red-500">{errorMessage}</p>
+        <p className={styles["error-message"]}>{errorMessage}</p>
       )}
       <button
         onClick={handleAddSession}
         disabled={!newSessionName.trim()}
-        className={`mt-4 w-full p-3 text-white ${
+        className={`${styles["create-button"]} ${
           newSessionName.trim()
-            ? "bg-blue-500 hover:bg-blue-600"
-            : "bg-gray-400 cursor-not-allowed"
-        } focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 rounded-md`}
+            ? styles["create-button-enabled"]
+            : styles["create-button-disabled"]
+        }`}
       >
         Create Session
       </button>

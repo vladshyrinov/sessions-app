@@ -1,0 +1,13 @@
+@reference "tailwindcss";
+
+.spinner-container {
+  @apply flex items-center justify-center h-screen;
+}
+
+.spinner {
+  @apply animate-spin rounded-full h-12 w-12 border-t-4 border-blue-500;
+}
+
+.sr-only {
+  @apply sr-only;
+}
